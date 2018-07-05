@@ -9,12 +9,14 @@ import java.util.List;
 public class UserDto {
     Integer userId;
     String userName;
-    List<SkillDto> skillDtos= new ArrayList<>();
+    String lastName;
+    List<SkillDto> skillDtos = new ArrayList<>();
 
-    public UserDto(Integer userId, String userName, List<SkillDto> skillDtos) {
+    public UserDto(Integer userId, String userName, List<SkillDto> skillDtos, String lastName) {
         this.userId = userId;
         this.userName = userName;
         this.skillDtos = skillDtos;
+        this.lastName = lastName;
     }
 
     public UserDto() {
@@ -42,5 +44,13 @@ public class UserDto {
 
     public void setSkillDtos(List<SkillDto> skillDtos) {
         this.skillDtos = skillDtos;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 }

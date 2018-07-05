@@ -7,10 +7,11 @@ module.controller("UserController", [ "$scope", "UserService",
 			$scope.userDto = {
 				userId : null,
 				userName : null,
+				lastName: null,
 				skillDtos : []
 			};
 			$scope.skills = [];
-			
+
 			UserService.getUserById(1).then(function(value) {
 				console.log(value.data);
 			}, function(reason) {
@@ -20,6 +21,7 @@ module.controller("UserController", [ "$scope", "UserService",
 			});
 
 			$scope.saveUser = function() {
+				console.log($scope.userDto)
 				$scope.userDto.skillDtos = $scope.skills.map(skill => {
 					return {skillId: null, skillName: skill};
 				});
@@ -28,7 +30,7 @@ module.controller("UserController", [ "$scope", "UserService",
 					UserService.getAllUsers().then(function(value) {
 						$scope.allUsers= value.data;
 					}, function(reason) {
-						console.log("error occured");
+						console.log("error occurred");
 					}, function(value) {
 						console.log("no callback");
 					});
@@ -37,10 +39,11 @@ module.controller("UserController", [ "$scope", "UserService",
 					$scope.userDto = {
 						userId : null,
 						userName : null,
-						skillDtos : []
+                        lastName : null,
+                        skillDtos : []
 					};
 				}, function(reason) {
-					console.log("error occured");
+					console.log("error occurred");
 				}, function(value) {
 					console.log("no callback");
 				});

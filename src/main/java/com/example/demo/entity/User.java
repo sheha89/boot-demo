@@ -21,6 +21,9 @@ public class User implements Serializable {
     @Column
     private String userName;
 
+    @Column
+    private String lastName;
+
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Skill> skills = new LinkedList<>();
 
@@ -46,6 +49,14 @@ public class User implements Serializable {
 
     public void setSkills(List<Skill> skills) {
         this.skills = skills;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public User() {

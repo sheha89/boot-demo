@@ -8,19 +8,19 @@ import javax.persistence.*;
 @Entity
 public class Skill {
     @Column
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Id
-	private Integer skillId;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
+    private Integer skillId;
     @Column
     private String skillName;
     @ManyToOne
     private User user;
 
     public Skill(String skillName) {
-		this.skillName = skillName;
-	}
+        this.skillName = skillName;
+    }
 
-	public Integer getSkillId() {
+    public Integer getSkillId() {
         return skillId;
     }
 

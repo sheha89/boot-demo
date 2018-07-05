@@ -8,22 +8,45 @@
 <hr/>
 <div class="container" ng-controller="UserController">
     <div class="row">
-        <label>User</label> <input type="text" ng-model="userDto.userName" class="input-sm spacing"/>
-        <label>Skills</label> <input type="text" ng-model="skills" ng-list class="input-sm custom-width spacing"
-                                     placeholder="use comma to separate skills"/>
-        <button ng-click="saveUser()" class="btn btn-sm btn-info">Save User</button>
+        <label class="col-md-2">Username</label> <input type="text" ng-model="userDto.userName" class="col-md-4 input-sm spacing"/>
     </div>
-    <hr/>
+    <br>
     <div class="row">
-        <p>{{allUsers | json}}</p>
+        <label class="col-md-2">LastName</label> <input type="text" ng-model="userDto.lastName" class="col-md-4 input-sm spacing"/>
+    </div>
+    <br>
+    <div class="row">
+        <label class="col-md-2">Skills</label> <input type="text" ng-model="skills" ng-list class="col-md-8 input-sm custom-width spacing"
+                                     placeholder="use comma to separate skills"/>
+    </div>
+    <br>
+    <div class="row">
+        <button ng-click="saveUser()" class="col-md-6 btn btn-sm btn-info">Save User</button>
     </div>
     <hr/>
-    <div class="row" ng-repeat="user in allUsers">
-        <div class="">
-            <h3>{{user.userName}}</h3>
-            <span ng-repeat="skill in user.skillDtos" class="spacing">{{skill.skillName}}</span>
-        </div>
-    </div>
+    <!--<div class="row">-->
+    <!--<p>{{allUsers | json}}</p>-->
+    <!--</div>-->
+    <hr/>
+
+
+    <table class="gridless-table table dataTableMyActionList" >
+        <thead>
+        <tr>
+            <th>User</th>
+            <th>Last Name</th>
+            <th>Skills</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="user in allUsers" role="row">
+            <td>{{user.userName}}</td>
+            <td>{{user.lastName}}</td>
+            <td><span ng-repeat="skill in user.skillDtos" class="spacing">{{skill.skillName}}</br></span></td>
+        </tr>
+        </tbody>
+    </table>
+
 </div>
 </body>
 <script src="js/lib/angular.min.js"></script>

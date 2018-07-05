@@ -12,17 +12,18 @@ import java.util.Arrays;
 
 @SpringBootApplication
 public class BootDemoApplication {
-	@Autowired
-	UserRepository userRepository;
+    @Autowired
+    UserRepository userRepository;
 
-	public static void main(String[] args) {
-		SpringApplication.run(BootDemoApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(BootDemoApplication.class, args);
+    }
 
-	@PostConstruct
-	public void setupDbWithData(){
-		User user= new User("Ashish", null);
-		user.setSkills(Arrays.asList(new Skill("java"), new Skill("js")));
-		user= userRepository.save(user);
-	}
+    @PostConstruct
+    public void setupDbWithData() {
+        User user = new User("Shehan", null);
+        user.setSkills(Arrays.asList(new Skill("java"), new Skill("js")));
+        user.setLastName("Ab");
+        user = userRepository.save(user);
+    }
 }

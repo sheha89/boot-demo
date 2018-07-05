@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
  * Created by ShehanAb on 5/7/18.
  */
 @Repository
-public interface SkillRepository extends JpaRepository<Skill, Integer>{
+public interface SkillRepository extends JpaRepository<Skill, Integer> {
 }
