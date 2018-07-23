@@ -15,7 +15,7 @@ import java.util.List;
 @RestController
 public class UserController {
     @Autowired
-    UserService userService;
+    private UserService userService;
 
     @RequestMapping(Constants.GET_USER_BY_ID)
     public UserDto getUserById(@PathVariable Integer userId) {

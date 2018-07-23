@@ -13,7 +13,7 @@ import java.util.Arrays;
 @SpringBootApplication
 public class BootDemoApplication {
     @Autowired
-    UserRepository userRepository;
+    private UserRepository userRepository;
 
     public static void main(String[] args) {
         SpringApplication.run(BootDemoApplication.class, args);
@@ -25,5 +25,6 @@ public class BootDemoApplication {
         user.setSkills(Arrays.asList(new Skill("java"), new Skill("js")));
         user.setLastName("Ab");
         user = userRepository.save(user);
+        System.out.println(user);
     }
 }

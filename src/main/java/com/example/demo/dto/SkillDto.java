@@ -1,11 +1,13 @@
 package com.example.demo.dto;
 
+import java.io.Serializable;
+
 /**
  * Created by ShehanAb on 5/7/18.
  */
-public class SkillDto {
-    Integer skillId;
-    String SkillName;
+public class SkillDto implements Serializable {
+    private Integer skillId;
+    private String SkillName;
 
     public SkillDto(Integer skillId, String skillName) {
         this.skillId = skillId;
@@ -29,5 +31,13 @@ public class SkillDto {
 
     public void setSkillName(String skillName) {
         SkillName = skillName;
+    }
+
+    @Override
+    public String toString() {
+        return "SkillDto{" +
+                "skillId=" + skillId +
+                ", SkillName='" + SkillName + '\'' +
+                '}';
     }
 }

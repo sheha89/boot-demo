@@ -8,18 +8,18 @@ import java.util.stream.Collectors;
 /**
  * Created by ShehanAb on 5/7/18.
  */
-public class UserConverter {
+public class UserTransformer {
     public static User dtoToEntity(UserDto userDto) {
         User user = new User(userDto.getUserName(), null);
         user.setUserId(userDto.getUserId());
-        user.setSkills(userDto.getSkillDtos().stream().map(SkillConverter::dtoToEntity).collect(Collectors.toList()));
+        user.setSkills(userDto.getSkillDtos().stream().map(SkillTransformer::dtoToEntity).collect(Collectors.toList()));
         user.setLastName(userDto.getLastName());
         return user;
     }
 
     public static UserDto entityToDto(User user) {
         UserDto userDto = new UserDto(user.getUserId(), user.getUserName(), null, user.getLastName());
-        userDto.setSkillDtos(user.getSkills().stream().map(SkillConverter::entityToDto).collect(Collectors.toList()));
+        userDto.setSkillDtos(user.getSkills().stream().map(SkillTransformer::entityToDto).collect(Collectors.toList()));
         return userDto;
     }
 }

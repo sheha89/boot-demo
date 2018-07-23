@@ -1,16 +1,17 @@
 package com.example.demo.dto;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by ShehanAb on 5/7/18.
  */
-public class UserDto {
-    Integer userId;
-    String userName;
-    String lastName;
-    List<SkillDto> skillDtos = new ArrayList<>();
+public class UserDto implements Serializable{
+    private Integer userId;
+    private String userName;
+    private String lastName;
+    private List<SkillDto> skillDtos = new ArrayList<>();
 
     public UserDto(Integer userId, String userName, List<SkillDto> skillDtos, String lastName) {
         this.userId = userId;
@@ -52,5 +53,15 @@ public class UserDto {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    @Override
+    public String toString() {
+        return "UserDto{" +
+                "userId=" + userId +
+                ", userName='" + userName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", skillDtos=" + skillDtos +
+                '}';
     }
 }
